@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-paper: #f6f4fb;
+  --color-paper-deep: #ece8f8;
+  --color-ink: #1c1633;
+  --color-ink-soft: #5a5470;
+  /* violet, lime-deep and coral-deep are tuned for WCAG AA with small text; the rest are decor-only */
+  --color-violet: #5b3fd1;
+  --color-violet-dark: #4a2fb8;
+  --color-violet-soft: #ded6ff;
+  --color-lilac: #b9a8ff;
+  --color-lime: #c6f06b;
+  --color-lime-deep: #3b7212;
+  --color-coral: #ff8a7a;
+  --color-coral-deep: #c0392b;
+  --color-sun: #ffd65c;
+
+  --font-sans: 'Onest', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Lora', ui-serif, Georgia, serif;
+
+  --animate-marquee: marquee 38s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-lime text-ink;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@utility monitor-grid {
+  background-image:
+    linear-gradient(rgb(198 240 107 / 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(198 240 107 / 0.07) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
